@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private float rotationSpeed;
     private float gravity = 30f;
     private float jumpSpeed = 12f;
+    private float verticalMovement = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         BuildSurfaceMovement();
+        BuildVerticalMovement();
         characterController.Move(direction);
     }
 
@@ -56,5 +58,19 @@ public class PlayerMovement : MonoBehaviour
             //No movement
             direction = Vector3.zero;
         }
+    }
+
+    private void BuildVerticalMovement()
+    {
+        //Check if player jumps and is grounded
+        if (Input.GetButtonDown("Jump") && characterController.isGrounded)
+        {
+            verticalMovement = jumpSpeed;
+        }
+
+        //Simulate gravity
+        verticalMovement -= gravity * Time.deltaTime;
+        //Set direction vector
+        direction.y = verticalMovement * Time.deltaTime;
     }
 }
