@@ -2733,6 +2733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 9209201426210918109, guid: 16e5253990ce87c409bb91aae62f11e3,
     type: 3}
+  shootCadence: 0.1
 --- !u!1 &5437076874610720366
 GameObject:
   m_ObjectHideFlags: 0
