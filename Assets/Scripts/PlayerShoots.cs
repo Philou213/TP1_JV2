@@ -12,7 +12,7 @@ public class PlayerShoots : MonoBehaviour
     void Start()
     {
         timeBeforeShoot = 0;
-        gun = transform.Find("BobbleMarine-Body/Armature/Master Control/Hips/Torso/Shoulder.R/Forearm.R/Hand.R/Hand.R 1/Gun.001/Gun").gameObject;
+        gun = transform.Find("BobbleMarine-Body/Armature/Master Control/Hips/Torso/Shoulder.R/Forearm.R/Hand.R/Hand.R 1/Gun.001/Gun/Gun end").gameObject;
     }
 
     // Update is called once per frame
