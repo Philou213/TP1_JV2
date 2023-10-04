@@ -8,7 +8,7 @@ public class PlayerShoots : MonoBehaviour
     [SerializeField] private float shootCadence;
     private float timeBeforeShoot;
     private GameObject gun;
-    private const int bulletPoolSize = 200;
+    private const int bulletPoolSize = 120;
     private GameObject[] bulletPool = new GameObject[bulletPoolSize];
 
     // Start is called before the first frame update
