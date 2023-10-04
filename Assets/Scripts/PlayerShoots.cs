@@ -55,8 +55,7 @@ public class PlayerShoots : MonoBehaviour
             GameObject currentBullet = bulletPool[i];
             if (!currentBullet.activeSelf)
             { 
-                currentBullet.transform.rotation = gun.transform.rotation;
-                currentBullet.transform.position = gun.transform.position;
+                currentBullet.transform.SetPositionAndRotation(gun.transform.position, gun.transform.rotation);
                 currentBullet.SetActive(true);
                 return;
             }
