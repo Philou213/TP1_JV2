@@ -11,10 +11,6 @@ public class BulletCollision : MonoBehaviour
             DesactiveBullet();
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        DesactiveBullet();
-    }
 
     private void DesactiveBullet()
     {
