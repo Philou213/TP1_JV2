@@ -6,7 +6,10 @@ public class BulletCollision : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        DesactiveBullet();
+        if (!collision.gameObject.CompareTag("Bullet"))
+        {
+            DesactiveBullet();
+        }
     }
     private void OnTriggerEnter(Collider other)
     {

@@ -17,11 +17,11 @@ GameObject:
   - component: {fileID: 1939318723052471664}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6075686261822754790
 Transform:
   m_ObjectHideFlags: 0
