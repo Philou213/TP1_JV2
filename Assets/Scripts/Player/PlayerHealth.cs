@@ -5,18 +5,30 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int startLives;
+    [SerializeField] private float timeOfInvinciblity;
+    private float timeBeforeCanBeHit;
     private int currentLives;
 
     // Start is called before the first frame update
     void Start()
     {
+        timeBeforeCanBeHit = 0;
         currentLives = startLives;
+    }
+
+    private void Update()
+    {
+        UpdateTimeBeforeCanBeHit();
     }
 
     private void RemoveLive()
     {
-        currentLives--;
-        IsDead();
+        if (timeBeforeCanBeHit == 0)
+        {
+            timeBeforeCanBeHit = timeOfInvinciblity;
+            currentLives--;
+            IsDead();
+        }
     }
 
     private void AddLive()
@@ -28,7 +40,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (currentLives <= 0) 
         {
-            Debug.Log("Game over");
+            gameObject.SetActive(false);
         }
     }
 
@@ -37,6 +49,15 @@ public class PlayerHealth : MonoBehaviour
         if (collision.gameObject.CompareTag("Alien"))
         {
             RemoveLive();
+        }
+    }
+
+    private void UpdateTimeBeforeCanBeHit()
+    {
+        timeBeforeCanBeHit -= Time.deltaTime;
+        if (timeBeforeCanBeHit < 0) 
+        {
+            timeBeforeCanBeHit = 0;
         }
     }
 }

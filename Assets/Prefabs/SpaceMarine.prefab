@@ -2749,6 +2749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startLives: 3
+  timeOfInvinciblity: 0.5
 --- !u!1 &5437076874610720366
 GameObject:
   m_ObjectHideFlags: 0
