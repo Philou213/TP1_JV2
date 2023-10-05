@@ -2633,6 +2633,7 @@ GameObject:
   - component: {fileID: 488274303256507955}
   - component: {fileID: -1917676378390058809}
   - component: {fileID: 2542477317253827930}
+  - component: {fileID: -8080008028624457799}
   m_Layer: 0
   m_Name: SpaceMarine
   m_TagString: Player
@@ -2696,6 +2697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 20
+  mainCamera: {fileID: 0}
 --- !u!136 &-1917676378390058809
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2734,6 +2736,19 @@ MonoBehaviour:
   bulletPrefab: {fileID: 9209201426210918109, guid: 16e5253990ce87c409bb91aae62f11e3,
     type: 3}
   shootCadence: 0.1
+--- !u!114 &-8080008028624457799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4890595402546638730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a60c12156a6624389ecf1ff837191e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startLives: 3
 --- !u!1 &5437076874610720366
 GameObject:
   m_ObjectHideFlags: 0
