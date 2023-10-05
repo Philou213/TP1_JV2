@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private float rotationTime = 0.1f;
     private float rotationSpeed;
     private float gravity = 30f;
-    private float jumpSpeed = 12f;
+    private float jumpSpeed = 18f;
     private float verticalMovement = 0;
     // Start is called before the first frame update
     void Start()

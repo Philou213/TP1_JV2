@@ -48,7 +48,10 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Alien"))
         {
-            RemoveLive();
+            if (!(collision.transform.position.y < transform.position.y))
+            {
+                RemoveLive();
+            }
         }
     }
 
