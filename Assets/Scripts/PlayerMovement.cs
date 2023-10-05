@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed;
+    [SerializeField] private Transform mainCamera;
     private Vector3 direction;
     private CharacterController characterController;
     private float rotationTime = 0.1f;
@@ -41,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         if (direction.magnitude >= 0.1f)
         {
             //Get angle of movement
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + mainCamera.eulerAngles.y;
 
             //Smooth angle
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref rotationSpeed, rotationTime);
@@ -50,8 +51,10 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             //Set direction vector
-            direction.x = direction.x * movementSpeed * Time.deltaTime;
-            direction.z = direction.z * movementSpeed * Time.deltaTime;
+            Vector3 directionWithCamera = (Quaternion.Euler(0f, angle, 0f) * Vector3.forward).normalized; 
+            float originalMovementMagnitude = direction.magnitude; 
+            direction.x = directionWithCamera.x * movementSpeed * originalMovementMagnitude * Time.deltaTime; 
+            direction.z = directionWithCamera.z * movementSpeed * originalMovementMagnitude * Time.deltaTime;
         }
         else
         {
