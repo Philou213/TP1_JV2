@@ -25,9 +25,13 @@ public class PlayerShoots : MonoBehaviour
 
     void InitializePoolSize()
     {
+        GameObject bulletListParent = new GameObject("BulletPool");
         for (int i = 0; i < bulletPoolSize; i++) 
         {
-            bulletPool[i] = Instantiate(bulletPrefab);
+            GameObject bullet = Instantiate(bulletPrefab);
+            bullet.transform.SetParent(bulletListParent.transform);
+            bullet.SetActive(false);
+            bulletPool[i] = bullet;
         }
     }
 
