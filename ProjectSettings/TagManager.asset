@@ -4,7 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Bullet
   - Alien
+  - PickupHealth
+  - PickupMultishoot
+  - PickupMissile
+  - Missile
   - Floor
   layers:
   - Default

@@ -2629,9 +2629,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7198602683646946317}
-  m_Layer: 7
+  - component: {fileID: -5892091871513043590}
+  - component: {fileID: 488274303256507955}
+  - component: {fileID: -1917676378390058809}
+  - component: {fileID: 2542477317253827930}
+  - component: {fileID: -8080008028624457799}
+  - component: {fileID: -365978182352063912}
+  - component: {fileID: -1579187051631824799}
+  m_Layer: 0
   m_Name: SpaceMarine
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2653,6 +2660,127 @@ Transform:
   - {fileID: 1323836180460017622}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!143 &-5892091871513043590
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4890595402546638730}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 11
+  m_Radius: 3
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 6, z: 0}
+--- !u!114 &488274303256507955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4890595402546638730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1622d9d2fb849942a252088e3c4b06f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 20
+  mainCamera: {fileID: 0}
+--- !u!136 &-1917676378390058809
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4890595402546638730}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3
+  m_Height: 11
+  m_Direction: 1
+  m_Center: {x: 0, y: 6, z: 0}
+--- !u!114 &2542477317253827930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4890595402546638730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b69f446b536034db79ef11a43b36ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 9209201426210918109, guid: 16e5253990ce87c409bb91aae62f11e3,
+    type: 3}
+  shootCadence: 0.1
+--- !u!114 &-8080008028624457799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4890595402546638730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a60c12156a6624389ecf1ff837191e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startLives: 3
+  timeOfInvinciblity: 0.5
+--- !u!114 &-365978182352063912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4890595402546638730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4148039b0246b74093e8faa35b3302e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeOfMultishoot: 10
+  nbOfMissiles: 5
+--- !u!114 &-1579187051631824799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4890595402546638730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350468ef2dd873e42be97cc8140d1feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootCadence: 1
+  missilePrefab: {fileID: 2525046337550401708, guid: 1e98e7d446211fbbba881ed3504f9d68,
+    type: 3}
 --- !u!1 &5437076874610720366
 GameObject:
   m_ObjectHideFlags: 0

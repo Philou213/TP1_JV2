@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: -8296908608273462516}
   m_Layer: 15
   m_Name: ShootBoostPickup
-  m_TagString: Untagged
+  m_TagString: PickupMultishoot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
