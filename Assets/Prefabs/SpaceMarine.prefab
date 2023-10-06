@@ -2763,6 +2763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4148039b0246b74093e8faa35b3302e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeOfMultishoot: 10
 --- !u!1 &5437076874610720366
 GameObject:
   m_ObjectHideFlags: 0

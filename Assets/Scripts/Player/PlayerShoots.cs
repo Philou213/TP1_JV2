@@ -8,8 +8,10 @@ public class PlayerShoots : MonoBehaviour
     [SerializeField] private float shootCadence;
     private float timeBeforeShoot;
     private GameObject gun;
-    private const int bulletPoolSize = 120;
+    private const int bulletPoolSize = 200;
     private GameObject[] bulletPool = new GameObject[bulletPoolSize];
+    private float timeOfMultishoot;
+    private const int bulletsInMultishoot = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +41,8 @@ public class PlayerShoots : MonoBehaviour
     void Update()
     {
         ShootsBullet();
-        updateTimeBeforeShoot();
+        UpdateTimeBeforeShoot();
+        UpdateTimeOfMultishoot();
     }
 
     private void ShootsBullet()
@@ -54,24 +57,74 @@ public class PlayerShoots : MonoBehaviour
 
     private void SpawnBullet()
     {
+        int ballsToShoot = 1;
+        if (timeOfMultishoot > 0) 
+        {
+            ballsToShoot = bulletsInMultishoot;
+        }
+
         for (int i = 0; i < bulletPoolSize; i++)
         {
             GameObject currentBullet = bulletPool[i];
             if (!currentBullet.activeSelf)
             { 
-                currentBullet.transform.SetPositionAndRotation(gun.transform.position, gun.transform.rotation);
+                currentBullet.transform.position = gun.transform.position;
+                Vector3 bulletDirection = SetBulletDirection(ballsToShoot);
+                currentBullet.GetComponent<BulletMovement>().SetDirection(bulletDirection);
                 currentBullet.SetActive(true);
-                return;
+                ballsToShoot--;
+                if (ballsToShoot == 0)
+                {
+                    return;
+                }
             }
         }
     }
 
-    private void updateTimeBeforeShoot()
+    private Vector3 SetBulletDirection(int indexBullet)
+    {
+        Vector3 forward = gun.transform.root.forward;
+        switch (indexBullet) 
+        {
+            case 1:
+                {
+                    return forward.normalized;
+                }
+            case 2:
+                {
+                    return (forward * 0.5f + transform.right * 0.5f).normalized;
+                }
+            case 3:
+                {
+                    return (forward * 0.5f - transform.right * 0.5f).normalized;
+                }
+            default:
+                {
+                    return forward.normalized;
+                }
+        }
+    }
+
+    private void UpdateTimeBeforeShoot()
     {
         timeBeforeShoot -= Time.deltaTime;
         if (timeBeforeShoot < 0)
         {
             timeBeforeShoot = 0;
         }
+    }
+
+    private void UpdateTimeOfMultishoot()
+    {
+        timeOfMultishoot -= Time.deltaTime;
+        if (timeBeforeShoot < 0)
+        {
+            timeBeforeShoot = 0;
+        }
+    }
+
+    public void GiveMultishoot(float timeToGive)
+    {
+        timeOfMultishoot += timeToGive;
     }
 }
