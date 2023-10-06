@@ -47,10 +47,9 @@ public class PlayerShoots : MonoBehaviour
 
     private void ShootsBullet()
     {
-        if (Input.GetButton("Fire1") && timeBeforeShoot == 0)
+        if (Input.GetButton("Fire1") && !Input.GetButton("Fire2") &&timeBeforeShoot == 0)
         {
             SpawnBullet();
-            //GameObject bulletInstance = Instantiate(bulletPrefab, gun.transform.position, gun.transform.rotation);
             timeBeforeShoot = shootCadence;
         }
     }
@@ -70,7 +69,7 @@ public class PlayerShoots : MonoBehaviour
             { 
                 currentBullet.transform.position = gun.transform.position;
                 Vector3 bulletDirection = SetBulletDirection(ballsToShoot);
-                currentBullet.GetComponent<BulletMovement>().SetDirection(bulletDirection);
+                currentBullet.GetComponent<ProjectileMovement>().SetDirection(bulletDirection);
                 currentBullet.SetActive(true);
                 ballsToShoot--;
                 if (ballsToShoot == 0)

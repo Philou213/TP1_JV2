@@ -9,6 +9,7 @@ TagManager:
   - PickupHealth
   - PickupMultishoot
   - PickupMissile
+  - Missile
   layers:
   - Default
   - TransparentFX

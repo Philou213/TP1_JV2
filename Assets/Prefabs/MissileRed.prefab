@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8027253185720472673}
   - component: {fileID: 4106151635539143875}
   - component: {fileID: 280434400047993643}
+  - component: {fileID: -9047088644261950075}
+  - component: {fileID: 5539718611158210511}
   m_Layer: 0
   m_Name: MissileRed
   m_TagString: Untagged
@@ -79,11 +81,36 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &-9047088644261950075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2525046337550401708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4e8ac4ca70e1b4d85dbcf4ac8707b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpeed: 25
+--- !u!114 &5539718611158210511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2525046337550401708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f92f266546701e43a521706c0413db7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5755948023374679887
 GameObject:
   m_ObjectHideFlags: 0

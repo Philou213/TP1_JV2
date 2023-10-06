@@ -2635,6 +2635,7 @@ GameObject:
   - component: {fileID: 2542477317253827930}
   - component: {fileID: -8080008028624457799}
   - component: {fileID: -365978182352063912}
+  - component: {fileID: -1579187051631824799}
   m_Layer: 0
   m_Name: SpaceMarine
   m_TagString: Player
@@ -2764,6 +2765,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeOfMultishoot: 10
+  nbOfMissiles: 5
+--- !u!114 &-1579187051631824799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4890595402546638730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350468ef2dd873e42be97cc8140d1feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootCadence: 1
+  missilePrefab: {fileID: 2525046337550401708, guid: 1e98e7d446211fbbba881ed3504f9d68,
+    type: 3}
 --- !u!1 &5437076874610720366
 GameObject:
   m_ObjectHideFlags: 0
