@@ -295,7 +295,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282840810}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.05079067, y: 0.000000004296044, z: -2.1848091e-10, w: 0.9987093}
+  m_LocalRotation: {x: 0.050790668, y: -0.000000004296044, z: 2.1848089e-10, w: 0.9987093}
   m_LocalPosition: {x: 0, y: -64.12, z: -35.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -598,7 +598,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401363148}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.05079066, y: 0.0000000021480218, z: -1.0924045e-10, w: 0.9987093}
+  m_LocalRotation: {x: 0.050790656, y: -0.0000000021480218, z: 1.0924045e-10, w: 0.9987093}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -889,7 +889,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &560636616
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2468,6 +2468,7 @@ MonoBehaviour:
   livesText: {fileID: 1497066906}
   multishootText: {fileID: 987228209}
   missilesText: {fileID: 1149702933}
+  gameoverText: {fileID: 0}
 --- !u!4 &1774081254
 Transform:
   m_ObjectHideFlags: 0
@@ -2889,7 +2890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1910209412
 RectTransform:
   m_ObjectHideFlags: 0

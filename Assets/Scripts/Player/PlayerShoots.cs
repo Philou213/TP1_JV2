@@ -12,10 +12,12 @@ public class PlayerShoots : MonoBehaviour
     private GameObject[] bulletPool = new GameObject[bulletPoolSize];
     private float timeOfMultishoot;
     private const int bulletsInMultishoot = 3;
+    private UIManager uiManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        uiManager = GameObject.Find("GameManager").GetComponent<UIManager>();
         timeBeforeShoot = 0;
         gun = transform.Find("BobbleMarine-Body/Armature/Master Control/Hips/Torso/Shoulder.R/Forearm.R/Hand.R/Hand.R 1/Gun.001/Gun/Gun end").gameObject;
     }
@@ -120,6 +122,7 @@ public class PlayerShoots : MonoBehaviour
         {
             timeBeforeShoot = 0;
         }
+        uiManager.UpdateMultishootText((int)timeOfMultishoot);
     }
 
     public void GiveMultishoot(float timeToGive)

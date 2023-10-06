@@ -6,14 +6,17 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int startLives;
     [SerializeField] private float timeOfInvinciblity;
+    private UIManager uiManager;
     private float timeBeforeCanBeHit;
     private int currentLives;
 
     // Start is called before the first frame update
     void Start()
     {
+        uiManager = GameObject.Find("GameManager").GetComponent<UIManager>();
         timeBeforeCanBeHit = 0;
         currentLives = startLives;
+        uiManager.UpdateLivesText(currentLives);
     }
 
     private void Update()
@@ -28,12 +31,14 @@ public class PlayerHealth : MonoBehaviour
             timeBeforeCanBeHit = timeOfInvinciblity;
             currentLives--;
             IsDead();
+            uiManager.UpdateLivesText(currentLives);
         }
     }
 
     public void AddLive()
     {
         currentLives++;
+        uiManager.UpdateLivesText(currentLives);
     }
 
     private void IsDead()

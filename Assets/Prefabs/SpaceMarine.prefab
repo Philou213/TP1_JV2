@@ -2778,7 +2778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350468ef2dd873e42be97cc8140d1feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootCadence: 1
+  shootCadence: 1.5
   missilePrefab: {fileID: 2525046337550401708, guid: 1e98e7d446211fbbba881ed3504f9d68,
     type: 3}
 --- !u!1 &5437076874610720366

@@ -11,11 +11,13 @@ public class PlayerMissile : MonoBehaviour
     [SerializeField] private float shootCadence;
     [SerializeField] private GameObject missilePrefab;
     private float timeBeforeShoot;
+    private UIManager uiManager;
 
     private void Start()
     {
         timeBeforeShoot = 0;
         gun = transform.Find("BobbleMarine-Body/Armature/Master Control/Hips/Torso/Shoulder.R/Forearm.R/Hand.R/Hand.R 1/Gun.001/Gun/Gun end").gameObject;
+        uiManager = GameObject.Find("GameManager").GetComponent<UIManager>();
     }
 
     private void Awake()
@@ -36,6 +38,7 @@ public class PlayerMissile : MonoBehaviour
             SpawnMissile();
             nbOfMissiles--;
             timeBeforeShoot = shootCadence;
+            uiManager.UpdateMissileText(nbOfMissiles);
         }
     }
 
@@ -58,6 +61,7 @@ public class PlayerMissile : MonoBehaviour
     public void GiveMissiles(int missilesToGive)
     {
         nbOfMissiles += missilesToGive;
+        uiManager.UpdateMissileText(nbOfMissiles);
     }
 
     void InitializePoolSize()
