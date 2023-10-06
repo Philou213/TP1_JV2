@@ -31,7 +31,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void AddLive()
+    public void AddLive()
     {
         currentLives++;
     }

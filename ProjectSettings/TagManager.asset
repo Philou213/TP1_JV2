@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - Alien
+  - PickupHealth
   layers:
   - Default
   - TransparentFX
