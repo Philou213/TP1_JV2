@@ -118,11 +118,14 @@ public class PlayerShoots : MonoBehaviour
     private void UpdateTimeOfMultishoot()
     {
         timeOfMultishoot -= Time.deltaTime;
-        if (timeBeforeShoot < 0)
+        if (timeOfMultishoot < 0)
         {
-            timeBeforeShoot = 0;
+            timeOfMultishoot = 0;
         }
-        uiManager.UpdateMultishootText((int)timeOfMultishoot);
+        else
+        {
+            uiManager.UpdateMultishootText((int)timeOfMultishoot);
+        }
     }
 
     public void GiveMultishoot(float timeToGive)

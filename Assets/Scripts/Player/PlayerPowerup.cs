@@ -22,16 +22,19 @@ public class PlayerPowerup : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PickupHealth"))
         {
+            collision.gameObject.SetActive(false);
             playerHealthScript.AddLive();
         }
 
         else if (collision.gameObject.CompareTag("PickupMultishoot"))
         {
+            collision.gameObject.SetActive(false);
             playerShootsScript.GiveMultishoot(timeOfMultishoot);
         }
 
         else if (collision.gameObject.CompareTag("PickupMissile"))
         {
+            collision.gameObject.SetActive(false);
             playerMissileScript.GiveMissiles(nbOfMissiles);
         }
     }
