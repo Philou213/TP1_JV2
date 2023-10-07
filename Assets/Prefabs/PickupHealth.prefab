@@ -426,6 +426,7 @@ GameObject:
   - component: {fileID: 6699140894155902513}
   - component: {fileID: -2465771339758024469}
   - component: {fileID: -1713796432817068368}
+  - component: {fileID: -1742787231466941395}
   m_Layer: 0
   m_Name: PickupHealth
   m_TagString: PickupHealth
@@ -487,3 +488,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDurationTime: 15
+--- !u!114 &-1742787231466941395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6319660280540615819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7214f163c3150a84aad39c48df06150e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinSpeed: 30

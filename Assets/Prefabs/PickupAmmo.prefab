@@ -758,6 +758,7 @@ GameObject:
   - component: {fileID: 7551864084136434475}
   - component: {fileID: 4036900181859735718}
   - component: {fileID: -7965252683907241730}
+  - component: {fileID: 7460256377930492038}
   m_Layer: 0
   m_Name: PickupAmmo
   m_TagString: PickupMissile
@@ -827,6 +828,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDurationTime: 15
+--- !u!114 &7460256377930492038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7171504067025027473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7214f163c3150a84aad39c48df06150e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinSpeed: 30
 --- !u!1 &7262976537300094628
 GameObject:
   m_ObjectHideFlags: 0
