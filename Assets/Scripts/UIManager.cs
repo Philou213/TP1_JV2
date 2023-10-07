@@ -12,7 +12,14 @@ public class UIManager : MonoBehaviour
 
     public void UpdateLivesText(int lives)
     {
-        livesText.SetText(lives.ToString());
+        if (lives <= 0)
+        {
+            ShowGameOverText();
+        } 
+        else 
+        { 
+            livesText.SetText(lives.ToString()); 
+        }
     }
 
     public void UpdateMultishootText(int multishootTime)
@@ -44,6 +51,14 @@ public class UIManager : MonoBehaviour
 
     public void ShowGameOverText()
     {
-        gameoverText.gameObject.SetActive(true);
+        HideHud();
+        gameoverText.transform.parent.gameObject.SetActive(true);
+    }
+
+    private void HideHud()
+    {
+        livesText.transform.parent.gameObject.SetActive(false);
+        multishootText.transform.parent.gameObject.SetActive(false);
+        missilesText.transform.parent.gameObject.SetActive(false);
     }
 }
