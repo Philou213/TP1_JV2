@@ -61,8 +61,10 @@ public class PlayerMissile : MonoBehaviour
             if (!currentMissile.activeSelf)
             {
                 currentMissile.transform.position = gun.transform.position;
-                //TODO : Set missile rotation
-                currentMissile.GetComponent<ProjectileMovement>().SetDirection(gun.transform.root.forward.normalized);
+                Vector3 gunDirection = gun.transform.root.forward.normalized;
+                Quaternion missileRotation = Quaternion.LookRotation(gunDirection);
+                currentMissile.transform.rotation = missileRotation;
+                currentMissile.GetComponent<ProjectileMovement>().SetDirection(new Vector3(0,0,1));
                 currentMissile.SetActive(true);
                 return;
             }
