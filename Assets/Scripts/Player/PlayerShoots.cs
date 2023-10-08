@@ -49,11 +49,16 @@ public class PlayerShoots : MonoBehaviour
 
     private void ShootsBullet()
     {
-        if (Input.GetButton("Fire1") && !Input.GetButton("Fire2") &&timeBeforeShoot == 0)
+        if (IsFiring() && timeBeforeShoot == 0)
         {
             SpawnBullet();
             timeBeforeShoot = shootCadence;
         }
+    }
+
+    private bool IsFiring()
+    {
+        return (Input.GetButton("Fire1") || Input.GetAxis("Fire1") != 0) && !(Input.GetButton("Fire2") || Input.GetAxis("Fire2") != 0);
     }
 
     private void SpawnBullet()

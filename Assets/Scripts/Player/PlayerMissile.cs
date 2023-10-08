@@ -33,13 +33,18 @@ public class PlayerMissile : MonoBehaviour
 
     private void ShootsMissile()
     {
-        if (Input.GetButton("Fire2") && !Input.GetButton("Fire1") && timeBeforeShoot == 0 && nbOfMissiles > 0)
+        if (IsFiring() && timeBeforeShoot == 0 && nbOfMissiles > 0)
         {
             SpawnMissile();
             nbOfMissiles--;
             timeBeforeShoot = shootCadence;
             uiManager.UpdateMissileText(nbOfMissiles);
         }
+    }
+
+    private bool IsFiring()
+    {
+        return (Input.GetButton("Fire2") || Input.GetAxis("Fire2") != 0) && !(Input.GetButton("Fire1") || Input.GetAxis("Fire1") != 0);
     }
 
     private void SpawnMissile()
