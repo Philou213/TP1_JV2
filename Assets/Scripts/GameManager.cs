@@ -11,12 +11,20 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        InstantiateAliens();
+        //InstantiateAliens();
     }
 
     void Update()
     {
-        
+        QuitGame();
+    }
+
+    private void QuitGame()
+    {
+        if (Input.GetButton("Exit"))
+        {
+            Application.Quit();
+        }
     }
 
     private void InstantiateAliens()
