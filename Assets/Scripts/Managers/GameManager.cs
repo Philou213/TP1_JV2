@@ -7,11 +7,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int maxNbOfConcurrentAliens;
     [SerializeField] private int maxTotalNbOfSpawnedAliens;
     [SerializeField] private GameObject alienPrefab;
-
+    private InputManager inputManager;
 
     void Start()
     {
-        //InstantiateAliens();
+        inputManager = GetComponent<InputManager>();
+        InstantiateAliens();
     }
 
     void Update()
@@ -21,7 +22,16 @@ public class GameManager : MonoBehaviour
 
     private void QuitGame()
     {
-        if (Input.GetButton("Exit"))
+        bool quit;
+        if (inputManager.gamepadUse)
+        {
+            quit = Input.GetButton("ExitGamepad");
+        }
+        else
+        {
+            quit = Input.GetButton("ExitKeyboard");
+        }
+        if (quit)
         {
             Application.Quit();
         }

@@ -12,12 +12,14 @@ public class PlayerMissile : MonoBehaviour
     [SerializeField] private GameObject missilePrefab;
     private float timeBeforeShoot;
     private UIManager uiManager;
+    private InputManager inputManager;
 
     private void Start()
     {
         timeBeforeShoot = 0;
         gun = transform.Find("BobbleMarine-Body/Armature/Master Control/Hips/Torso/Shoulder.R/Forearm.R/Hand.R/Hand.R 1/Gun.001/Gun/Gun end").gameObject;
-        uiManager = GameObject.Find("GameManager").GetComponent<UIManager>();
+        uiManager = FindAnyObjectByType<GameManager>().GetComponent<UIManager>();
+        inputManager = FindAnyObjectByType<GameManager>().GetComponent<InputManager>();
     }
 
     private void Awake()
@@ -44,7 +46,11 @@ public class PlayerMissile : MonoBehaviour
 
     private bool IsFiring()
     {
-        return (Input.GetButton("Fire2") || Input.GetAxis("Fire2") != 0) && !(Input.GetButton("Fire1") || Input.GetAxis("Fire1") != 0);
+        if (inputManager.gamepadUse)
+        {
+            return Input.GetAxis("FireMissileGamepad") != 0 && Input.GetAxis("FireBulletGamepad") == 0;
+        }
+        return Input.GetButton("FireMissileKeyboard") && !(Input.GetButton("FireBulletKeyboard"));
     }
 
     private void SpawnMissile()

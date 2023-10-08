@@ -13,11 +13,13 @@ public class PlayerShoots : MonoBehaviour
     private float timeOfMultishoot;
     private const int bulletsInMultishoot = 3;
     private UIManager uiManager;
+    private InputManager inputManager;
 
     // Start is called before the first frame update
     void Start()
     {
         uiManager = GameObject.Find("GameManager").GetComponent<UIManager>();
+        inputManager = GameObject.Find("GameManager").GetComponent<InputManager>();
         timeBeforeShoot = 0;
         gun = transform.Find("BobbleMarine-Body/Armature/Master Control/Hips/Torso/Shoulder.R/Forearm.R/Hand.R/Hand.R 1/Gun.001/Gun/Gun end").gameObject;
     }
@@ -58,7 +60,11 @@ public class PlayerShoots : MonoBehaviour
 
     private bool IsFiring()
     {
-        return (Input.GetButton("Fire1") || Input.GetAxis("Fire1") != 0) && !(Input.GetButton("Fire2") || Input.GetAxis("Fire2") != 0);
+        if (inputManager.gamepadUse)
+        {
+            return Input.GetAxis("FireBulletGamepad") != 0 && Input.GetAxis("FireMissileGamepad") == 0;
+        }
+        return Input.GetButton("FireBulletKeyboard") && !(Input.GetButton("FireMissileKeyboard"));
     }
 
     private void SpawnBullet()

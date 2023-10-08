@@ -2764,6 +2764,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1774081254}
   - component: {fileID: 1774081253}
+  - component: {fileID: 1774081255}
+  - component: {fileID: 1774081256}
+  - component: {fileID: 1774081257}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2802,6 +2805,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1774081255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774081252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c3ebb979b06a9d4698145dfcf6479a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxNbOfConcurrentAliens: 0
+  maxTotalNbOfSpawnedAliens: 0
+  alienPrefab: {fileID: 616056485553046870, guid: ebdb77b9bebedbe6eb0742bed57d3ddc,
+    type: 3}
+--- !u!114 &1774081256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774081252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64cd10438a82ec54e8fe4704be2f5d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamepadUse: 0
+--- !u!114 &1774081257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774081252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50bf917ff49d3a145b97c10969c71a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cinemachineCamera: {fileID: 1829959365}
 --- !u!1001 &1786101144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2986,7 +3031,7 @@ MonoBehaviour:
     Value: 0.5
     m_SpeedMode: 0
     m_MaxSpeed: 4
-    m_AccelTime: 0.1
+    m_AccelTime: 0.4
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
@@ -3830,10 +3875,6 @@ PrefabInstance:
     - target: {fileID: 474840, guid: 941d6224549424c91b1cf112b44ec0cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

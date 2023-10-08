@@ -13,9 +13,11 @@ public class PlayerMovement : MonoBehaviour
     private float gravity = 30f;
     private float jumpSpeed = 18f;
     private float verticalMovement = 0;
+    private InputManager inputManager;
     // Start is called before the first frame update
     void Start()
     {
+        inputManager = FindAnyObjectByType<GameManager>().GetComponent<InputManager>();
         characterController = GetComponent<CharacterController>();
     }
 
@@ -29,10 +31,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void BuildSurfaceMovement()
     {
-        //TODO:Get axis raw for gamepad
         //Get inputs
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal;
+        float vertical;
+        if (inputManager.gamepadUse)
+        {
+            horizontal = Input.GetAxisRaw("HorizontalGamepad");
+            vertical = Input.GetAxisRaw("VerticalGamepad");
+        }
+        else
+        {
+            horizontal = Input.GetAxis("HorizontalKeyboard");
+            vertical = Input.GetAxis("VerticalKeyboard");
+        }
+
         direction = new Vector3(horizontal, 0f, vertical);
 
         //Cancel higher movement speed
@@ -66,7 +78,16 @@ public class PlayerMovement : MonoBehaviour
     private void BuildVerticalMovement()
     {
         //Check if player jumps and is grounded
-        if (Input.GetButtonDown("Jump") && characterController.isGrounded)
+        bool isJumping;
+        if (inputManager.gamepadUse)
+        {
+            isJumping = Input.GetButtonDown("JumpGamepad");
+        }
+        else
+        {
+            isJumping = Input.GetButtonDown("JumpKeyboard");
+        }
+        if (isJumping && characterController.isGrounded)
         {
             verticalMovement = jumpSpeed;
         }
