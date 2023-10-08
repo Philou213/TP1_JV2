@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI multishootText;
     [SerializeField] TextMeshProUGUI missilesText;
     [SerializeField] TextMeshProUGUI gameoverText;
+    [SerializeField] TextMeshProUGUI victoryText;
 
     public void UpdateLivesText(int lives)
     {
@@ -53,6 +54,12 @@ public class UIManager : MonoBehaviour
     {
         HideHud();
         gameoverText.transform.parent.gameObject.SetActive(true);
+    }
+
+    public void ShowVictoryText()
+    {
+        HideHud();
+        victoryText.transform.parent.gameObject.SetActive(true);
     }
 
     private void HideHud()
