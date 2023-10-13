@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class AlienController : MonoBehaviour
 {
     [SerializeField] private int healthPoints;
-    private bool isGrounded = false;
+    public UnityEvent alienDestroyedEvent;
 
     private int currentHp;
     private GameObject player;
@@ -21,23 +22,19 @@ public class AlienController : MonoBehaviour
     private void OnEnable()
     {
         agent.enabled = false;
+        currentHp = healthPoints;
     }
     private void Start()
     {
         player = GameObject.Find("SpaceMarine");
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (gameObject.activeInHierarchy)
         {
-
-            if (isGrounded)
+            if (agent.enabled)
             {
-                if (!agent.enabled)
-                {
-                    agent.enabled = true;
-                }
                 agent.SetDestination(player.transform.position);
             }
         }
@@ -47,15 +44,10 @@ public class AlienController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Floor")
         {
-            isGrounded = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Floor")
+            agent.enabled = true;
+        } else if (collision.gameObject.tag == "Bullet")
         {
-            isGrounded = false;
+            LoseHP(1);
         }
     }
 
@@ -75,8 +67,8 @@ public class AlienController : MonoBehaviour
         {
             gameObject.SetActive(false);
             gameObject.transform.position = disabledPosition;
-            isGrounded = false;
             agent.enabled = false;
+            alienDestroyedEvent.Invoke();
         }
     }
 }
