@@ -6,6 +6,7 @@ public class PlayerShoots : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float shootCadence;
+    [SerializeField] GameManager gameManager;
     private float timeBeforeShoot;
     private GameObject gun;
     private const int bulletPoolSize = 200;
@@ -73,6 +74,11 @@ public class PlayerShoots : MonoBehaviour
         if (timeOfMultishoot > 0) 
         {
             ballsToShoot = bulletsInMultishoot;
+            gameManager.PlaySound(SoundManager.Instance.tripleShootClip, transform.position);
+        } 
+        else
+        {
+            gameManager.PlaySound(SoundManager.Instance.shootClip, transform.position);
         }
 
         for (int i = 0; i < bulletPoolSize; i++)

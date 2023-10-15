@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     [SerializeField] private int startLives;
     [SerializeField] private float timeOfInvinciblity;
     private UIManager uiManager;
     private float timeBeforeCanBeHit;
     private int currentLives;
+    private GameObject soundEmittersGroup;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
         timeBeforeCanBeHit = 0;
         currentLives = startLives;
         uiManager.UpdateLivesText(currentLives);
+        soundEmittersGroup = GameObject.Find("SoundEmitters");
     }
 
     private void Update()
@@ -45,7 +49,11 @@ public class PlayerHealth : MonoBehaviour
     {
         if (currentLives <= 0) 
         {
+            gameManager.PlaySound(SoundManager.Instance.marineDeathClip, transform.position);
             gameObject.SetActive(false);
+        } else
+        {
+            gameManager.PlaySound(SoundManager.Instance.marineHurtClip, transform.position);
         }
     }
 
@@ -68,4 +76,6 @@ public class PlayerHealth : MonoBehaviour
             timeBeforeCanBeHit = 0;
         }
     }
+
+    
 }

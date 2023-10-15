@@ -11,11 +11,12 @@ TagManager:
   - PickupMissile
   - Missile
   - Floor
+  - Spawner
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Projectile
   - Water
   - UI
   - Floor

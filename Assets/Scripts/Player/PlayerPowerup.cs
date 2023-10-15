@@ -9,6 +9,7 @@ public class PlayerPowerup : MonoBehaviour
     private PlayerMissile playerMissileScript;
     [SerializeField] private float timeOfMultishoot;
     [SerializeField] private int nbOfMissiles;
+    [SerializeField] GameManager gameManager;
 
     private void Start()
     {
@@ -24,18 +25,21 @@ public class PlayerPowerup : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
             playerHealthScript.AddLive();
+            gameManager.PlaySound(SoundManager.Instance.powerupPickupClip, collision.transform.position);
         }
 
         else if (collision.gameObject.CompareTag("PickupMultishoot"))
         {
             collision.gameObject.SetActive(false);
             playerShootsScript.GiveMultishoot(timeOfMultishoot);
+            gameManager.PlaySound(SoundManager.Instance.powerupPickupClip, collision.transform.position);
         }
 
         else if (collision.gameObject.CompareTag("PickupMissile"))
         {
             collision.gameObject.SetActive(false);
             playerMissileScript.GiveMissiles(nbOfMissiles);
+            gameManager.PlaySound(SoundManager.Instance.powerupPickupClip, collision.transform.position);
         }
     }
 }

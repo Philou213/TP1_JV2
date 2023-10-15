@@ -10,10 +10,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject alienPrefab;
     [SerializeField] private UnityEvent gameWonEvent;
     [SerializeField] private AlienSpawnController alienSpawnController;
+    public AlienKilledEvent alienKilledEvent;
 
     private InputManager inputManager;
     private GameObject spawnersGroup;
     private GameObject aliensGroup;
+    private GameObject soundEmittersGroup;
 
     private bool hasActiveSpawners = true;
 
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour
         inputManager = GetComponent<InputManager>();
         spawnersGroup = GameObject.Find("Spawners");
         aliensGroup = GameObject.Find("Aliens");
+        soundEmittersGroup = GameObject.Find("SoundEmitters");
         InstantiateAliens();
         alienSpawnController.AddAliensAndSpawnersToList();
     }
@@ -54,14 +57,20 @@ public class GameManager : MonoBehaviour
         {
             GameObject alien = Instantiate(alienPrefab);
             AlienController alienController = alien.GetComponent<AlienController>();
-            alienController.alienDestroyedEvent.AddListener(OnAlienDestroyed);
+            alienController.alienKilledEvent.AddListener(OnAlienKilled);
             alien.SetActive(false);
             alien.transform.parent = aliensGroup.transform;
         }
     }
 
-    public void OnAlienDestroyed()
+    public void OnAlienKilled(Vector3 position)
     {
+        if (position != Vector3.zero)
+        {
+            PlaySound(SoundManager.Instance.alienDeathClip, position);
+            alienKilledEvent.Invoke(position);
+        }
+
         if (!hasActiveSpawners)
         {
             for (int i = 0; i < aliensGroup.transform.childCount; i++)
@@ -82,11 +91,26 @@ public class GameManager : MonoBehaviour
                 return;
         }
         hasActiveSpawners = false;
-        OnAlienDestroyed();
+        OnAlienKilled(Vector3.zero);
     }
 
     private void WinGame()
     {
+
         gameWonEvent.Invoke();
+    }
+
+    public void PlaySound(AudioClip audioClip, Vector3 position)
+    {
+        for (int i = 0; i < soundEmittersGroup.transform.childCount; i++)
+        {
+            if (!soundEmittersGroup.transform.GetChild(i).gameObject.activeInHierarchy)
+            {
+                soundEmittersGroup.transform.GetChild(i).transform.position = position;
+                soundEmittersGroup.transform.GetChild(i).gameObject.SetActive(true);
+                soundEmittersGroup.transform.GetChild(i).gameObject.GetComponent<AudioSource>().PlayOneShot(audioClip);
+                return;
+            }
+        }
     }
 }

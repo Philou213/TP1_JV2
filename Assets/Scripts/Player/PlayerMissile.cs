@@ -10,6 +10,7 @@ public class PlayerMissile : MonoBehaviour
     private GameObject[] missilePool = new GameObject[missilePoolSize];
     [SerializeField] private float shootCadence;
     [SerializeField] private GameObject missilePrefab;
+    [SerializeField] GameManager gameManager;
     private float timeBeforeShoot;
     private UIManager uiManager;
     private InputManager inputManager;
@@ -41,6 +42,7 @@ public class PlayerMissile : MonoBehaviour
             nbOfMissiles--;
             timeBeforeShoot = shootCadence;
             uiManager.UpdateMissileText(nbOfMissiles);
+            gameManager.PlaySound(SoundManager.Instance.missileShotClip, transform.position);
         }
     }
 

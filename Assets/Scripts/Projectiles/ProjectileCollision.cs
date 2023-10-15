@@ -6,7 +6,11 @@ public class ProjectileCollision : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        if (!collision.gameObject.CompareTag("Bullet") && !collision.gameObject.CompareTag("Missile"))
+        if (tag == "Missile" && (collision.gameObject.tag == "Alien" || collision.gameObject.tag == "Spawner"))
+        {
+            return;
+        }
+        else
         {
             DesactiveBullet();
         }

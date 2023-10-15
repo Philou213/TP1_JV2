@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class AlienController : MonoBehaviour
 {
     [SerializeField] private int healthPoints;
-    public UnityEvent alienDestroyedEvent;
+    [SerializeField] public AlienKilledEvent alienKilledEvent;
 
     private int currentHp;
     private GameObject player;
@@ -45,9 +45,22 @@ public class AlienController : MonoBehaviour
         if (collision.gameObject.tag == "Floor")
         {
             agent.enabled = true;
-        } else if (collision.gameObject.tag == "Bullet")
+        }
+        else if (collision.gameObject.tag == "Bullet")
         {
             LoseHP(1);
+        }
+        else if (collision.gameObject.tag == "Missile")
+        {
+            LoseHP(collision.gameObject.GetComponent<MissileExplosion>().GetMissileDamage());
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Missile")
+        {
+            LoseHP(collision.gameObject.GetComponent<MissileExplosion>().GetMissileDamage());
         }
     }
 
@@ -66,9 +79,9 @@ public class AlienController : MonoBehaviour
         if (currentHp <= 0)
         {
             gameObject.SetActive(false);
-            gameObject.transform.position = disabledPosition;
             agent.enabled = false;
-            alienDestroyedEvent.Invoke();
+            alienKilledEvent.Invoke(transform.position);
+            transform.position = disabledPosition;
         }
     }
 }

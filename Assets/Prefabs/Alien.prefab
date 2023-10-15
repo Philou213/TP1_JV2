@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 1
-  alienDestroyedEvent:
+  alienKilledEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!195 &2255084257151385557
@@ -231,7 +231,7 @@ NavMeshAgent:
   m_Enabled: 0
   m_AgentTypeID: -1372625422
   m_Radius: 3.5
-  m_Speed: 18
+  m_Speed: 10
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 360

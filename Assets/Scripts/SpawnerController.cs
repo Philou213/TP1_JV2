@@ -21,6 +21,17 @@ public class SpawnerController : MonoBehaviour
         {
             LoseHP(1);
         }
+        else if (collision.gameObject.tag == "Missile")
+        {
+            LoseHP(collision.gameObject.GetComponent<MissileExplosion>().GetMissileDamage());
+        }
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Missile")
+        {
+            LoseHP(collision.gameObject.GetComponent<MissileExplosion>().GetMissileDamage());
+        }
     }
 
     private void LoseHP(int hpLost)
