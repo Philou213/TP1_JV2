@@ -2116,7 +2116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxConcurrentCollectibles: 20
-  collectibleDropRate: 100
+  collectibleDropRate: 30
   healthPrefab: {fileID: 6319660280540615819, guid: 2ef37418cfb962cd8bca74555d24c6d6,
     type: 3}
   shootsPrefab: {fileID: 105092, guid: 941d6224549424c91b1cf112b44ec0cb, type: 3}

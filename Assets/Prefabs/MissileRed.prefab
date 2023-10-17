@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa14a1129dc7ffd419a38e4e4632fb47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 7
+  explosionRadius: 20
   explosionDamage: 5
 --- !u!82 &-5307281894719692954
 AudioSource:
