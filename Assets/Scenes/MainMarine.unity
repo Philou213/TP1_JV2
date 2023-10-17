@@ -798,7 +798,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 390d1e401d456db4e8923d60a357e309, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4368,9 +4368,11 @@ MonoBehaviour:
   alienDeath: {fileID: 8300000, guid: 8f252cb39a2a2da44aefd3d09599af53, type: 3}
   marineDeath: {fileID: 8300000, guid: d9f613ad6fc2e5648b734dade33baf01, type: 3}
   marineHurt: {fileID: 8300000, guid: a16b9017a7a3b744fbd8ab26d0a816c3, type: 3}
-  missileShot: {fileID: 8300000, guid: a188fcd57b842ae42b8591b1a666c90f, type: 3}
+  missileShot: {fileID: 8300000, guid: 67f70180cd62bdb49a57f2295d936741, type: 3}
   powerupAppear: {fileID: 8300000, guid: 00f25f135ee488c4591479876ca3f10c, type: 3}
   powerupPickup: {fileID: 8300000, guid: 55bc10006917fbe46a89f70a93cd4e1f, type: 3}
+  healthPickup: {fileID: 8300000, guid: ce60ebba38a0ea34d9901d54ff7012ff, type: 3}
+  shootsPickup: {fileID: 8300000, guid: ecec02cce6a885b4e96387089c6889bd, type: 3}
   shoot: {fileID: 8300000, guid: 5601eca1dfa29004bb6fa92fb60c7feb, type: 3}
   tripleShoot: {fileID: 8300000, guid: 8e48e9181723f0c4c9c881d2bfc0fa03, type: 3}
   victorySound: {fileID: 8300000, guid: b4d3cb20c25bae54e999c556d56876b8, type: 3}

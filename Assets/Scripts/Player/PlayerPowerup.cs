@@ -25,14 +25,14 @@ public class PlayerPowerup : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
             playerHealthScript.AddLive();
-            gameManager.PlaySound(SoundManager.Instance.powerupPickupClip, collision.transform.position);
+            gameManager.PlaySound(SoundManager.Instance.healthPickupClip, collision.transform.position);
         }
 
         else if (collision.gameObject.CompareTag("PickupMultishoot"))
         {
             collision.gameObject.SetActive(false);
             playerShootsScript.GiveMultishoot(timeOfMultishoot);
-            gameManager.PlaySound(SoundManager.Instance.powerupPickupClip, collision.transform.position);
+            gameManager.PlaySound(SoundManager.Instance.shootsPickupClip, collision.transform.position);
         }
 
         else if (collision.gameObject.CompareTag("PickupMissile"))

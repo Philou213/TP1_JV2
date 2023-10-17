@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 260184e515b89eb4b9225a72da1e0166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 1
+  healthPoints: 10
   spawnerDestroyedEvent:
     m_PersistentCalls:
       m_Calls:
